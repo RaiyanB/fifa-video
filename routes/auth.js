@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const authController = require('../controllers/authController');
+const videoController = require('../controllers/videoController');
 
-router.get('/register', authController.getRegister);
-router.post('/register', authController.postRegister);
-router.get('/login', authController.getLogin);
-router.post('/login', authController.postLogin);
+// Upload Video
+router.get('/new_video', videoController.getNewVideo);
+router.post('/new_video', videoController.postNewVideo);
+
+// Dashboard Views (all/mine)
+router.get('/dashboard/:filter', videoController.getDashboard);
 
 module.exports = router;
